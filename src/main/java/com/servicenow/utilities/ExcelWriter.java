@@ -9,7 +9,8 @@ public class ExcelWriter {
 
   public static void main(String[] args) throws FileNotFoundException, IOException {
 
-    XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream("./testdat/Login.xlsx"));
+    XSSFWorkbook workbook = new XSSFWorkbook(new FileInputStream("./testdata/Login.xlsx"));
+    
     
     
     

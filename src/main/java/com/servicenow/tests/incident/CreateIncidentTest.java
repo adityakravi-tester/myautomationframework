@@ -1,12 +1,12 @@
-package com.servicenow.tests;
+package com.servicenow.tests.incident;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.servicenow.base.BaseClass;
-import com.servicenow.pages.CreateIncidentPage;
-import com.servicenow.pages.IncidentsPage;
-import com.servicenow.pages.LoginPage;
+import com.servicenow.pages.incident.CreateIncidentPage;
+import com.servicenow.pages.incident.IncidentsPage;
+import com.servicenow.pages.incident.LoginPage;
 
 public class CreateIncidentTest extends BaseClass {
   
@@ -33,7 +33,7 @@ public class CreateIncidentTest extends BaseClass {
     .enterShortDescription(shortDescription)
     .clickSubmitButton();
     
-    if(scenarioType.equalsIgnoreCase("positive")) {
+    if(scenarioType.equalsIgnoreCase("positives")) {
       new IncidentsPage(webdriver.get()).verifyIncidentNumber(incidentNumber.get());
     } else {
       new CreateIncidentPage(webdriver.get()).verifyErrorMessage(expectedErrorMessage);

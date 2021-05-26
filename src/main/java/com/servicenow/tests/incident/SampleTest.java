@@ -1,9 +1,9 @@
-package com.servicenow.tests;
+package com.servicenow.tests.incident;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import com.servicenow.base.BaseClass;
-import com.servicenow.pages.LoginPage;
+import com.servicenow.pages.incident.LoginPage;
 
 public class SampleTest extends BaseClass{
   
@@ -14,6 +14,7 @@ public class SampleTest extends BaseClass{
   
   @Test(dataProvider = "setData")
   public void testLogin(String username, String password, String profileUser) {
+    
     new LoginPage(webdriver.get())
     .switchToFrame()
     .enterUsername(username)

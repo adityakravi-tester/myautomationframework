@@ -1,4 +1,4 @@
-package com.servicenow.pages;
+package com.servicenow.base;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import com.servicenow.base.BaseClass;
 import org.testng.Assert;
+
+import com.servicenow.pages.incident.IncidentsPage;
 
 public class HomePage extends BaseClass{
 

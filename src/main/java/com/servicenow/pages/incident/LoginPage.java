@@ -1,4 +1,4 @@
-package com.servicenow.pages;
+package com.servicenow.pages.incident;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,6 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import com.servicenow.base.BaseClass;
+import com.servicenow.base.HomePage;
 
 public class LoginPage extends BaseClass{
   

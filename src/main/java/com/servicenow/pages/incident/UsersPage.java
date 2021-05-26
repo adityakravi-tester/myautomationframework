@@ -2,13 +2,15 @@
  * This class can has methods which are duplicated from GroupsPage. We can put them in a common class.
  */
 
-package com.servicenow.pages;
+package com.servicenow.pages.incident;
 
 import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.servicenow.base.HomePage;
 
 public class UsersPage extends HomePage{
 

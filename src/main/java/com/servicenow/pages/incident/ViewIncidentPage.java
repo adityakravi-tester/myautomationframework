@@ -1,4 +1,4 @@
-package com.servicenow.pages;
+package com.servicenow.pages.incident;
 
 import java.time.Duration;
 
@@ -9,6 +9,8 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.servicenow.base.HomePage;
 
 public class ViewIncidentPage extends HomePage{
   

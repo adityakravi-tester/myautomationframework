@@ -1,10 +1,12 @@
-package com.servicenow.pages;
+package com.servicenow.pages.incident;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.testng.Assert;
+
+import com.servicenow.base.HomePage;
 
 public class CreateIncidentPage extends HomePage{
 

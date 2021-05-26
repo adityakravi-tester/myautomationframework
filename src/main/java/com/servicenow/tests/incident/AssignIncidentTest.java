@@ -1,10 +1,10 @@
-package com.servicenow.tests;
+package com.servicenow.tests.incident;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.servicenow.base.BaseClass;
-import com.servicenow.pages.LoginPage;
+import com.servicenow.pages.incident.LoginPage;
 
 public class AssignIncidentTest extends BaseClass{
   

@@ -1,4 +1,4 @@
-package com.servicenow.pages;
+package com.servicenow.pages.incident;
 
 import java.time.Duration;
 import java.util.List;
@@ -10,6 +10,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.servicenow.base.HomePage;
 
 public class GroupsPage extends HomePage{
 

@@ -11,7 +11,6 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
-
 import com.servicenow.utilities.ExcelDataFactory;
 import com.servicenow.utilities.PropertyReader;
 
@@ -21,15 +20,18 @@ public class BaseClass {
   public static ThreadLocal<Properties> prop = new ThreadLocal<>();
   public String excelTestDataFile;
   
-  @Parameters({"os","browser"})
+  @Parameters({"os","browser","maxRetry"})
   @BeforeMethod
-  public void setup(String os, String browser) throws IOException {
+  public void setup(String os, String browser, String maxRetry) throws IOException {
     FileInputStream propertyLocation = new FileInputStream("./testdata/service-now.properties");
+    
     DriverFactory webDriverFactory = new DriverFactory();
     PropertyReader properties = new PropertyReader();
+    
     webDriverFactory.setDriver(os, browser);
     properties.setProperty(new Properties());
     prop.set(properties.getProperty());
+    
     webdriver.set(webDriverFactory.getDriver());
     webdriver.get().manage().window().maximize();
     webdriver.get().manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
@@ -49,7 +51,7 @@ public class BaseClass {
     Runtime.getRuntime().exec("taskkill /f /im "+ browser +"driver.exe");
   }
   
-  @DataProvider
+  @DataProvider(indices = {0})
   public String[][] setData() throws IOException {
     return new ExcelDataFactory().readExcelData(excelTestDataFile);
   }

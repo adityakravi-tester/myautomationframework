@@ -1,20 +1,20 @@
-package com.servicenow.tests;
+package com.servicenow.tests.incident;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
 import com.servicenow.base.BaseClass;
-import com.servicenow.pages.LoginPage;
+import com.servicenow.pages.incident.LoginPage;
 
-public class DeleteIncidentTest extends BaseClass {
-
+public class UpdateIncidentTest extends BaseClass{
+  
   @BeforeTest
   public void setExceDataFile() {
-    excelTestDataFile = "DeleteIncident";
+    excelTestDataFile = "UpdateIncident";
   }
   
   @Test(dataProvider = "setData")
-  public void testDeleteTest(String filterType, String searchParam, String incidentNumber) {
-    
+  public void testUpdateIncident(String filterType, String incidentNumber, String urgency, String state, String priority) {
     new LoginPage(webdriver.get())
     .switchToFrame()
     .enterUsername(prop.get().getProperty("username"))
@@ -25,7 +25,10 @@ public class DeleteIncidentTest extends BaseClass {
     .switchToFrame()
     .searchGivenParameter(incidentNumber)
     .clickSearchedIncident()
-    .deleteIncident()
-    .verifyIncidentDeleted();
+    .selectUrgency(urgency)
+    .selectState(state)
+    .clickUpdateButton()
+    .searchGivenParameter(incidentNumber)
+    .verifyUrgencyAndStateSelected();
   }
 }
