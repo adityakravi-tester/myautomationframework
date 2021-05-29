@@ -15,6 +15,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.servicenow.pages.change.ChangeRequestPage;
+import com.servicenow.pages.change.CreateChangeIndexPage;
 import com.servicenow.pages.incident.IncidentsPage;
 
 public class HomePage extends BaseClass{
@@ -36,7 +38,13 @@ public class HomePage extends BaseClass{
   private WebElement linkIncidents;
 
   @FindBy(how = How.XPATH, using = "(//*[@class='sn-widget-list-title' and text()='Open'])[1]")
-  private WebElement linkOpen;
+  private WebElement linkOpenIncident;
+  
+  @FindBy(how = How.XPATH, using = "(//*[@class='sn-widget-list-title' and text()='Create New'])[3]")
+  private WebElement linkCreateNewChange;
+  
+  @FindBy(how = How.XPATH, using = "(//*[@class='sn-widget-list-title' and text()='Open'])[3]")
+  private WebElement linkOpenChange;
 
   public HomePage verifyUserLoggedIn(String profileUser) {
     Assert.assertEquals(profileUser, "System Administrator");
@@ -53,9 +61,20 @@ public class HomePage extends BaseClass{
     return this;
   }
 
-  public HomePage clickOpenLink() {
-    new WebDriverWait(webdriver.get(), Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(linkOpen)).click();
+  public HomePage clickOpenIncidentLink() {
+    new WebDriverWait(webdriver.get(), Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(linkOpenIncident)).click();
     return this;
+  }
+  
+  public ChangeRequestPage clickOpenChangeLink() {
+    new WebDriverWait(webdriver.get(), Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(linkOpenChange)).click();
+    return new ChangeRequestPage(webdriver.get());
+  }
+  
+  public CreateChangeIndexPage clickCreateNewChangeLink() {
+    new WebDriverWait(webdriver.get(), Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(linkCreateNewChange)).click();
+    webdriver.get().switchTo().frame(frame);
+    return new CreateChangeIndexPage(webdriver.get());
   }
 
   public IncidentsPage switchToFrame() {
@@ -64,7 +83,7 @@ public class HomePage extends BaseClass{
   }
 
   public HomePage switchToWindow(int windowNumber) {
-    List<String> windowHandles = null;
+    List<String> windowHandles = new ArrayList<>();
     try {
       windowHandles = new ArrayList<>(webdriver.get().getWindowHandles());
       webdriver.get().switchTo().window(windowHandles.get(windowNumber -1));

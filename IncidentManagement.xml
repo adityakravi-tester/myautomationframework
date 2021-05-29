@@ -7,12 +7,13 @@
 <parameter name="maxRetry" value="3"></parameter>
   <test thread-count="5" name="Test">
     <classes>
-      <class name="com.servicenow.tests.incident.SampleTest"/>
+      <!-- <class name="com.servicenow.tests.incident.SampleTest"/> -->
       <!-- <class name="com.servicenow.tests.incident.CreateIncidentTest"/> -->
       <!-- <class name="com.servicenow.tests.incident.UpdateIncidentTest"/>
       <class name="com.servicenow.tests.incident.AssignIncidentTest"/>
       <class name="com.servicenow.tests.incident.ResolveIncidentTest"/>
       <class name="com.servicenow.tests.incident.DeleteIncidentTest"/> -->
+      <class name="com.servicenow.tests.change.CreateChangeTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

@@ -20,7 +20,7 @@ public class ResolveIncidentTest extends BaseClass{
     .enterPassword(prop.get().getProperty("password"))
     .clickLoginButton()
     .enterIncidentInFilter(filterType)
-    .clickOpenLink()
+    .clickOpenIncidentLink()
     .switchToFrame()
     .searchGivenParameter(incidentNumber)
     .clickSearchedIncident()
